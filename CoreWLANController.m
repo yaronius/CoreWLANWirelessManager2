@@ -45,10 +45,10 @@
 			phyModeStr = @"802.11n";
 			break;
 		case kCWPHYMode11ac:
-			phyModeStr = "802.11ac";
+			phyModeStr = @"802.11ac";
 			break;
 		default:
-			phyModeStr = "?unknown mode?";
+			phyModeStr = @"?unknown mode?";
 			break;
 	}
 	return phyModeStr;
@@ -191,7 +191,7 @@ static NSString *stringForNeigbPhy(CWNetwork *neigb)
 	else
 		[disconnectButton setEnabled:NO];
 
-    num = currentInterface.interfaceMode;
+    num = (NSNumber*) currentInterface.interfaceMode;
 	[opModeField setStringValue:((num && powerState) ? [self stringForOpMode:num] : @"")];
 	
     num = [NSNumber numberWithLong: [currentInterface security]];
